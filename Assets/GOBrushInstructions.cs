@@ -12,4 +12,7 @@ public class README : MonoBehaviour
     //5. Use the eyedropper in the scene to select
     //the desired Game Object(s)
     //6. Use brush on the scene
+    //Work row by row from top to bottom, otherwise tree trunks
+    //will emerge from the middle of the next tree down.
+    //AKA you need to layer manually.
 }
