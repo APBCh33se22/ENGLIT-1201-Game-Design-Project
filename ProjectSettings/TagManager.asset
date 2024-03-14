@@ -44,3 +44,9 @@ TagManager:
   - name: NOT IN SIGHT
     uniqueID: 244320707
     locked: 0
+  - name: Floor
+    uniqueID: 944453413
+    locked: 0
+  - name: Walls
+    uniqueID: 1873170893
+    locked: 0
