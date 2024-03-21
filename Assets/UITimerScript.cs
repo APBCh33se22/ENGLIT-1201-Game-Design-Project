@@ -42,7 +42,16 @@ public class UITimerScript : MonoBehaviour
         finished = true;
         timerIsRunning = false;
         DisplayTime(timeRemaining);
+        Application.Quit();
+        //StartCoroutine(waiter());
     }
 
    }
+/*
+   IEnumerator waiter()
+{   
+    yield return new WaitForSeconds(5);
+    Application.Quit();
+
+}*/
 }
