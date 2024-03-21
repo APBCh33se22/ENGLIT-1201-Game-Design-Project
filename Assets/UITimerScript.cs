@@ -6,7 +6,7 @@ using TMPro;
 
 public class UITimerScript : MonoBehaviour
 {
-   public float timeRemaining = 600;
+   public float timeRemaining = 300;
    public bool timerIsRunning = false;
    public TextMeshProUGUI timerText;
    public bool finished = false;
