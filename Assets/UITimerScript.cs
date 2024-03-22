@@ -7,15 +7,20 @@ using TMPro;
 public class UITimerScript : MonoBehaviour
 {
    public float timeRemaining = 300;
-   public bool timerIsRunning = false;
+   public FinishedSO finishedBoolHolder;
+   private bool timerIsRunning;
    public TextMeshProUGUI timerText;
-   public bool finished = false;
 
    private void Start() {
         timerIsRunning = true;
+        finishedBoolHolder.finishLineReached = false;
    }
 
    void Update() { 
+        bool finished = finishedBoolHolder.finishLineReached;
+        if (finished == true) {
+            timerIsRunning = false;
+        }
         if (timerIsRunning) {
             if (timeRemaining > 0) {
                 timeRemaining -= Time.deltaTime;
@@ -35,23 +40,4 @@ public class UITimerScript : MonoBehaviour
     float seconds = Mathf.FloorToInt(timeToDisplay%60);
     timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
    }
-
-   void OnTriggerEnter2D(Collider2D collision) {
-
-    if (collision == GameObject.Find("FinishLine").GetComponent<BoxCollider2D>()) {
-        finished = true;
-        timerIsRunning = false;
-        DisplayTime(timeRemaining);
-        Application.Quit();
-        //StartCoroutine(waiter());
-    }
-
-   }
-/*
-   IEnumerator waiter()
-{   
-    yield return new WaitForSeconds(5);
-    Application.Quit();
-
-}*/
 }
