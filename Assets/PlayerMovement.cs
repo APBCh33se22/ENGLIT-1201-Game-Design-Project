@@ -7,8 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     public Rigidbody2D rb;
     Vector2 movement;
-    public ContactFilter2D moveFilter;
-    private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
+    //public ContactFilter2D moveFilter;
+    //private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
 
     // Update is called once per frame
     void Update()

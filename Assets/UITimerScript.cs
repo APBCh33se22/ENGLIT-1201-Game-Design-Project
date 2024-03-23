@@ -7,20 +7,20 @@ using TMPro;
 public class UITimerScript : MonoBehaviour
 {
    public float timeRemaining = 300;
-   public FinishedSO finishedBoolHolder;
    private bool timerIsRunning;
    public TextMeshProUGUI timerText;
 
    private void Start() {
         timerIsRunning = true;
-        finishedBoolHolder.finishLineReached = false;
+        
    }
 
    void Update() { 
-        bool finished = finishedBoolHolder.finishLineReached;
-        if (finished == true) {
+        Vector2 pos = GameObject.Find("Player").transform.position;
+        if (((pos.y <= 1.857813) && (pos.y >= -1.732331)) && pos.x >= 98.22171) {
             timerIsRunning = false;
         }
+        
         if (timerIsRunning) {
             if (timeRemaining > 0) {
                 timeRemaining -= Time.deltaTime;
@@ -30,6 +30,9 @@ public class UITimerScript : MonoBehaviour
                 timeRemaining = 0;
                 timerIsRunning = false;
             }
+            DisplayTime(timeRemaining);
+        }
+        else {
             DisplayTime(timeRemaining);
         }
    }
