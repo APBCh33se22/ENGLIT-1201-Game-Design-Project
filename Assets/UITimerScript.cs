@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class UITimerScript : MonoBehaviour
@@ -19,6 +20,7 @@ public class UITimerScript : MonoBehaviour
         Vector2 pos = GameObject.Find("Player").transform.position;
         if (((pos.y <= 1.857813) && (pos.y >= -1.732331)) && pos.x >= 98.22171) {
             timerIsRunning = false;
+            SceneManager.LoadScene("VictoryScreen", LoadSceneMode.Single);
         }
         
         if (timerIsRunning) {
