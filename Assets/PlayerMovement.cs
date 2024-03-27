@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed;
     public Rigidbody2D rb;
+    public Animator animator;
     Vector2 movement;
     //public ContactFilter2D moveFilter;
     //private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
@@ -16,6 +17,10 @@ public class PlayerMovement : MonoBehaviour
         // Input
         movement.x = Input.GetAxisRaw("Horizontal"); // returns -1 if moving left & returns 1 if moving right
         movement.y = Input.GetAxisRaw("Vertical"); // returns -1 if moving down & returns 1 if moving up
+
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Vertical", movement.y);
+        animator.SetFloat("Speed", movement.sqrMagnitude);
     }
 
     private void FixedUpdate()

@@ -31,6 +31,7 @@ public class UITimerScript : MonoBehaviour
                 Debug.Log("Time has run out");
                 timeRemaining = 0;
                 timerIsRunning = false;
+                SceneManager.LoadScene("DefeatScreen", LoadSceneMode.Single);
             }
             DisplayTime(timeRemaining);
         }
